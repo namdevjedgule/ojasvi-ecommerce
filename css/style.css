@@ -593,6 +593,7 @@ section h2 {
 
 .about-text h2 {
     font-size: 40px;
+    font-weight: 600;
 }
 
 .about-text {
@@ -612,6 +613,23 @@ section h2 {
 .about-text p {
     margin-bottom: 15px;
     line-height: 1.7;
+}
+
+.center-text {
+    max-width: 700px;
+    margin: 10px auto;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+}
+
+.about-roots {
+    text-align: center;
+    background: #fff;
+}
+
+.about-craft {
+    background: #fafafa;
 }
 
 .about-image img {
