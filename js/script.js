@@ -22,6 +22,52 @@ document.addEventListener("DOMContentLoaded", () => {
                     lastScroll = currentScroll;
                 });
             }
+
+            fetch("navbar.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("navbar").innerHTML = data;
+
+                    const navbar = document.querySelector(".navbar");
+
+                    if (navbar) {
+                        let lastScroll = 0;
+
+                        window.addEventListener("scroll", () => {
+                            let currentScroll = window.pageYOffset;
+
+                            if (currentScroll > lastScroll) {
+                                navbar.classList.add("hide");
+                            } else {
+                                navbar.classList.remove("hide");
+                            }
+
+                            lastScroll = currentScroll;
+                        });
+                    }
+
+                    const hamburger = document.querySelector(".hamburger");
+                    const navLinks = document.querySelector(".nav-links");
+                    const icon = hamburger.querySelector("i");
+
+                    hamburger.addEventListener("click", () => {
+                        navLinks.classList.toggle("active");
+
+                        icon.classList.toggle("fa-bars");
+                        icon.classList.toggle("fa-xmark");
+
+                        hamburger.classList.toggle("open");
+                    });
+
+                    document.querySelectorAll(".nav-links a").forEach(link => {
+                        link.addEventListener("click", () => {
+                            navLinks.classList.remove("active");
+
+                            icon.classList.remove("fa-xmark");
+                            icon.classList.add("fa-bars");
+                        });
+                    });
+                });
         });
 
     fetch("footer.html")
@@ -29,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(data => {
             document.getElementById("footer").innerHTML = data;
         });
+
 
     const buttons = document.querySelectorAll(".filter-buttons button");
     const products = document.querySelectorAll(".product-card");
@@ -47,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             const span = button.querySelector("span");
-            if (span) span.textContent = count; 
+            if (span) span.textContent = count;
         });
     }
 
