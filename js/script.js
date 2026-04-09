@@ -120,4 +120,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCounts();
 
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let cartItemsContainer = document.getElementById("cart-items");
+    let cartTotalContainer = document.getElementById("cart-total");
+    let emptyCart = document.getElementById("empty-cart");
+
+    // If cart is empty
+    if (cart.length === 0) {
+        emptyCart.style.display = "block";
+        cartTotalContainer.style.display = "none";
+        return;
+    }
+
+    emptyCart.style.display = "none";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.quantity;
+
+        let div = document.createElement("div");
+        div.classList.add("cart-item");
+
+        div.innerHTML = `
+            <img src="${item.image}">
+            <div>
+                <h3>${item.name}</h3>
+                <p>₹${item.price}</p>
+            </div>
+            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+            <p>₹${item.price * item.quantity}</p>
+            <button onclick="removeItem(${index})">Remove</button>
+        `;
+
+        cartItemsContainer.appendChild(div);
+    });
+
+    cartTotalContainer.innerHTML = `
+        <h3>Total: ₹${total}</h3>
+        <button class="btn">Proceed to Checkout</button>
+    `;
 });
+
+
+// Update Quantity
+function updateQuantity(index, qty) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart[index].quantity = parseInt(qty);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
+
+// Remove Item
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
