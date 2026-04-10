@@ -249,7 +249,7 @@ h3 {
 }
 
 .section {
-    padding: 80px 8%;
+    padding: clamp(50px, 6vw, 80px) 6%;
 }
 
 section h2 {
@@ -395,7 +395,7 @@ section h2 {
 .product-grid {
     display: grid;
     gap: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     grid-template-columns: repeat(5, 1fr);
 }
 
