@@ -378,6 +378,7 @@ section h2 {
     width: 140px;
     height: 140px;
     border-radius: 20px;
+    background: #eee;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -385,7 +386,7 @@ section h2 {
     transition: 0.3s;
 }
 
-.category-card:nth-child(1) .category-img {
+/* .category-card:nth-child(1) .category-img {
     background: #FADADD;
 }
 
@@ -407,7 +408,7 @@ section h2 {
 
 .category-card:nth-child(6) .category-img {
     background: #EFE6D8;
-}
+} */
 
 .category-img img {
     width: 80%;
