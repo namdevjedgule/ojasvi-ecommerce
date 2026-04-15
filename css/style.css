@@ -1598,6 +1598,7 @@ section h2 {
     font-family: 'Playfair Display', serif;
     margin: 10px 0 20px;
     color: #2B2B2B;
+    text-align: left;
 }
 
 .highlight-text {
@@ -1606,7 +1607,6 @@ section h2 {
     margin-bottom: 25px;
 }
 
-/* contact details */
 .contact-details {
     display: flex;
     flex-direction: column;
