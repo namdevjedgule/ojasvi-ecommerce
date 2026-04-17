@@ -1,31 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ================= NAVBAR LOAD ================= */
     fetch("navbar.html")
         .then(res => res.text())
         .then(data => {
             document.getElementById("navbar").innerHTML = data;
 
+            initLoginModal();
+
             const navbar = document.querySelector(".navbar");
 
-            /* 🔥 Hide/Show Navbar on Scroll */
-            if (navbar) {
-                let lastScroll = 0;
-
-                window.addEventListener("scroll", () => {
-                    let currentScroll = window.pageYOffset;
-
-                    if (currentScroll > lastScroll) {
-                        navbar.classList.add("hide");
-                    } else {
-                        navbar.classList.remove("hide");
-                    }
-
-                    lastScroll = currentScroll;
-                });
-            }
-
-            /* 🍔 Hamburger Menu */
             const hamburger = document.querySelector(".hamburger");
             const navLinks = document.querySelector(".nav-links");
             const icon = hamburger ? hamburger.querySelector("i") : null;
@@ -36,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     icon.classList.toggle("fa-bars");
                     icon.classList.toggle("fa-xmark");
+
+                    document.body.classList.toggle("menu-open");
                 });
 
                 document.querySelectorAll(".nav-links a").forEach(link => {
@@ -44,11 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         icon.classList.remove("fa-xmark");
                         icon.classList.add("fa-bars");
+
+                        document.body.classList.remove("menu-open");
                     });
                 });
             }
 
-            /* ⭐ ACTIVE MENU LOGIC */
             const currentPage = window.location.pathname.split("/").pop();
 
             document.querySelectorAll(".nav-links a").forEach(link => {
@@ -63,7 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-    /* ================= FOOTER LOAD ================= */
+    let ticking = false;
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                const navbar = document.querySelector(".navbar");
+
+                if (window.scrollY > 5) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
+                }
+
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    });
+
     fetch("footer.html")
         .then(res => res.text())
         .then(data => {
@@ -71,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (footer) footer.innerHTML = data;
         });
 
-    /* ================= FILTER LOGIC ================= */
     const buttons = document.querySelectorAll(".filter-buttons button");
     const products = document.querySelectorAll(".product-card");
 
@@ -175,4 +179,43 @@ function updateQuantity(index, qty) {
     cart[index].quantity = parseInt(qty);
     localStorage.setItem("cart", JSON.stringify(cart));
     location.reload();
+}
+
+function initLoginModal() {
+
+    // OPEN POPUP
+    window.openLoginPopup = function () {
+        const modal = document.getElementById("loginModal");
+        if (modal) modal.style.display = "flex";
+    };
+
+    // CLOSE POPUP
+    window.closeLoginPopup = function () {
+        const modal = document.getElementById("loginModal");
+        if (modal) modal.style.display = "none";
+    };
+
+    // TOGGLE LOGIN / SIGNUP
+    window.toggleForm = function () {
+        const login = document.getElementById("loginForm");
+        const signup = document.getElementById("signupForm");
+        const title = document.getElementById("form-title");
+
+        if (!login || !signup || !title) return;
+
+        login.classList.toggle("hidden");
+        signup.classList.toggle("hidden");
+
+        title.innerText = login.classList.contains("hidden")
+            ? "Create Account"
+            : "Welcome Back";
+    };
+
+    // CLICK OUTSIDE CLOSE
+    window.addEventListener("click", function (e) {
+        const modal = document.getElementById("loginModal");
+        if (modal && e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 }

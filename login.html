@@ -9,20 +9,30 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400;500&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" href="login.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background: #0F0F0F;
         }
 
         .container {
+            margin-top: 100px;
             display: flex;
             height: 100vh;
         }
@@ -44,7 +54,7 @@
 
         .overlay {
             position: absolute;
-            bottom: 80px;
+            bottom: 120px;
             left: 60px;
             color: #F5F1EB;
             z-index: 2;
@@ -192,13 +202,13 @@
             display: none;
         }
 
-        .divider {
+        .divider-login {
             text-align: center;
             margin: 20px 0;
             position: relative;
         }
 
-        .divider span {
+        .divider-login span {
             background: #F5F1EB;
             padding: 0 10px;
             position: relative;
@@ -207,7 +217,7 @@
             color: #777;
         }
 
-        .divider::before {
+        .divider-login::before {
             content: "";
             position: absolute;
             top: 50%;
@@ -324,6 +334,8 @@
 
 <body>
 
+    <div id="navbar"></div>
+
     <div class="container">
 
         <div class="left">
@@ -386,7 +398,7 @@
 
                 </form>
 
-                <div class="divider">
+                <div class="divider-login">
                     <span>OR CONTINUE WITH</span>
                 </div>
 
@@ -405,7 +417,9 @@
 
     </div>
 
-    <script src="login.js"></script>
+    <div id="footer"></div>
+
+    <script src="js/script.js"></script>
     <script>
 
         window.addEventListener("load", () => {
