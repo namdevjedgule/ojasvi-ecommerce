@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Ojasvi | Order Confirmed</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         .ojasvi-success-page {
@@ -26,11 +45,10 @@
             text-align: center;
             max-width: 500px;
             width: 100%;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             animation: fadeIn 0.6s ease;
         }
 
-        /* Success Icon */
         .ojasvi-success-icon {
             width: 70px;
             height: 70px;
@@ -73,7 +91,6 @@
             font-weight: bold;
         }
 
-        /* Buttons */
         .ojasvi-success-actions {
             display: flex;
             gap: 10px;
@@ -108,13 +125,18 @@
             color: #fff;
         }
 
-        /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Mobile */
         @media(max-width: 480px) {
             .ojasvi-success-actions {
                 flex-direction: column;
@@ -125,53 +147,50 @@
 
 <body>
 
-<div class="ojasvi-success-page">
+    <div class="ojasvi-success-page">
 
-    <div class="ojasvi-success-card">
+        <div class="ojasvi-success-card">
 
-        <!-- ICON -->
-        <div class="ojasvi-success-icon">
-            ✔
-        </div>
+            <div class="ojasvi-success-icon">
+                ✔
+            </div>
 
-        <!-- TITLE -->
-        <h1 class="ojasvi-success-title">Order Confirmed</h1>
+            <h1 class="ojasvi-success-title">Order Confirmed</h1>
 
-        <p class="ojasvi-success-text">
-            Thank you for choosing Ojasvi. Your order has been placed successfully.
-        </p>
+            <p class="ojasvi-success-text">
+                Thank you for choosing Ojasvi. Your order has been placed successfully.
+            </p>
 
-        <!-- ORDER DETAILS -->
-        <div class="ojasvi-order-box">
-            <p>Order ID: <span class="ojasvi-order-id">#OJ12345</span></p>
-            <p>Estimated Delivery: 3–5 Business Days</p>
-            <p>Payment Method: Cash on Delivery</p>
-        </div>
+            <div class="ojasvi-order-box">
+                <p>Order ID: <span class="ojasvi-order-id">#OJ12345</span></p>
+                <p>Estimated Delivery: 3–5 Business Days</p>
+                <p>Payment Method: Cash on Delivery</p>
+            </div>
 
-        <!-- ACTIONS -->
-        <div class="ojasvi-success-actions">
-            <button class="ojasvi-btn ojasvi-btn-primary" onclick="goHome()">
-                Continue Shopping
-            </button>
+            <div class="ojasvi-success-actions">
+                <button class="ojasvi-btn ojasvi-btn-primary" onclick="goHome()">
+                    Continue Shopping
+                </button>
 
-            <button class="ojasvi-btn ojasvi-btn-secondary" onclick="viewOrders()">
-                View Orders
-            </button>
+                <button class="ojasvi-btn ojasvi-btn-secondary" onclick="viewOrders()">
+                    View Orders
+                </button>
+            </div>
+
         </div>
 
     </div>
 
-</div>
+    <script>
+        function goHome() {
+            window.location.href = "index.html";
+        }
 
-<script>
-    function goHome() {
-        window.location.href = "index.html";
-    }
-
-    function viewOrders() {
-        window.location.href = "account.html";
-    }
-</script>
+        function viewOrders() {
+            window.location.href = "account.html";
+        }
+    </script>
 
 </body>
+
 </html>
