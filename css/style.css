@@ -418,6 +418,7 @@ section h2 {
 
 .btn:hover {
     background: #C5A47E;
+    transform: translateY(-2px);
 }
 
 .trust {
@@ -1174,6 +1175,21 @@ section h2 {
 .collection-card p {
     font-size: 14px;
     opacity: 0.85;
+}
+
+.collection-details .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid black;
+    color: black;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.collection-details .btn:hover {
+    background: #C5A47E;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
